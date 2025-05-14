@@ -1,0 +1,5 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main entry point of the program." alt="" coords="5,5,55,31"/>
+<area shape="rect" id="Node000002" href="$today_8cpp.html#a5b479a5196b5732d9963fd2d688b16f6" title="Retrieves today&#39;s date and formats it as a string." alt="" coords="103,5,243,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,16,87,16,87,21,55,21"/>
+</map>

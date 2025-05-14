@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/build-system/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/getting-started/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/makefile-in-detail/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/ready-for-deployment/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/single-source-of-truth/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+    <url>
+         <loc>https://aafulei.github.io/cpp-today/testing/</loc>
+         <lastmod>2025-05-20</lastmod>
+    </url>
+</urlset>

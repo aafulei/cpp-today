@@ -1,0 +1,16 @@
+graph TD
+    A[GitHub Repository]
+    B[MkDocs Website]
+    C[Doxygen Documentation]
+    U[Users and Developers]
+
+    A -->|Hosts website source files| B
+    B -->|Links to| C
+    A -->|Hosts config files for documentation generation| C
+    B -->|Provides user guides| U
+    C -->|Provides code reference| U
+    A -->|Provides source code and project configuration| U
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#9f9,stroke:#333,stroke-width:2px
+    style C fill:#99f,stroke:#333,stroke-width:2px
