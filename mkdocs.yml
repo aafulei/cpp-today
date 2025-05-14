@@ -1,0 +1,30 @@
+site_name: CppToday
+site_description: A minimal C++23 project template that prints current date.
+site_author: Aaron Fu Lei
+site_url: https://aafulei.github.io/cpp-today
+
+repo_name: cpp-today
+repo_url: https://github.com/aafulei/cpp-today
+
+copyright: Built by <a href="http://github.com/aafulei">Aaron</a> with ❤️
+
+theme:
+  name: material
+  palette:
+    primary: deep purple
+    accent: deep purple
+  logo: img/logo-mkdocs.svg
+  favicon: img/icon.svg
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Testing: testing.md
+  - Build System: build-system.md
+  - Code Reference: doxygen/html/index.html
+
+plugins:
+  - search
+
+extra_css:
+  - css/custom-mkdocs.css
