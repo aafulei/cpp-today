@@ -1,0 +1,57 @@
+name: Code Format Check
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "Makefile"
+      - ".clang-format"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "Makefile"
+      - ".clang-format"
+
+jobs:
+  code-format-check:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show OS info
+        run: |
+          sw_vers
+
+      - name: Install clang-format
+        run: |
+          brew install clang-format
+
+      - name: Run clang-format check
+        run: |
+          echo "Checking code format with clang-format..."
+          clang-format --version
+          FILES=$(find src tests -name '*.cpp' -o -name '*.hpp')
+          FORMAT_DIFF=""
+          for file in $FILES; do
+            DIFF=$(clang-format --style File --fallback-style LLVM          \
+                   --output-replacements-xml "$file" | grep "<replacement " \
+                   || true)
+            if [ -n "$DIFF" ]; then
+              echo "Formatting issues found in $file"
+              FORMAT_DIFF=1
+            fi
+          done
+          if [ -n "$FORMAT_DIFF" ]; then
+            echo "Code format check failed!"
+            echo "Please run 'clang-format -i --style File --fallback-style " \
+                 "LLVM <file>' locally to fix formatting."
+            exit 1
+          else
+            echo "Code format check passed."
+          fi
