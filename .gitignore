@@ -1,2 +1,7 @@
+*.bak
+*.original*
 .DS_Store
 bin/
+docs/doxygen/html
+site/
+venv/
