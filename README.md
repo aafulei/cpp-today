@@ -1,5 +1,9 @@
 # Today
 
+[![Check](https://github.com/aafulei/cpp-today/actions/workflows/check.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/check.yml)
+[![Build](https://github.com/aafulei/cpp-today/actions/workflows/build.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/build.yml)
+[![Test](https://github.com/aafulei/cpp-today/actions/workflows/test.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/test.yml)
+
 A simple C++23 program that prints the current date in the `YY/MM/DD = Www`
 format.
 
@@ -12,6 +16,7 @@ format.
 - Test scripts for manual and automated testing
 - Code formatting support with `clang-format`
 - Editor tooling support via `clangd`
+- Built-in CI/CD workflows using GitHub Actions
 
 ## Supported Platforms
 
