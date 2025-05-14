@@ -38,10 +38,47 @@ TEST := $(TESTS_DIR)/test.sh
 
 # --- Rules --------------------------------------------------------------------
 
+.PHONY: all show show-os show-compiler release debug run run-release run-debug \
+	test test-release test-debug clean clean-release clean-debug help
+
 all: $(TARGET)
+
+show:
+	$(MAKE) show-os
+	$(MAKE) show-compiler
+
+show-compiler:
+	$(shell which $(CXX)) --version
+
+show-os:
+	@if [ -n "$$OS" ] && [ "$$OS" = "Windows_NT" ]; then  \
+		echo "Operating System: Windows (native CMD/PowerShell)";  \
+		echo "Windows Version:"; ver;  \
+	else  \
+		unameOut=$$(uname -s);  \
+		if [ "$$unameOut" = "Darwin" ]; then  \
+			echo "Operating System: macOS";  \
+			echo "Version:"; sw_vers;  \
+		elif [ "$$unameOut" = "Linux" ]; then  \
+			echo "Operating System: Linux";  \
+			if [ -f /etc/os-release ]; then  \
+				echo "Version:"; cat /etc/os-release;  \
+			else  \
+				uname -a;  \
+			fi;  \
+		elif echo "$$unameOut" | grep -qiE 'MINGW|MSYS|CYGWIN'; then  \
+			echo "Operating System: Windows (Git Bash/MSYS/Cygwin)";  \
+			winver=$$(cmd.exe /c ver);  \
+			echo "Windows Version:"; echo "$$winver";  \
+		else  \
+			echo "Operating System: Unknown";  \
+			uname -a;  \
+		fi  \
+	fi
 
 # build program
 $(TARGET): $(OBJ) | $(BINSTAMP)
+	$(MAKE) show
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # generate object files and dependency files
@@ -108,6 +145,9 @@ help:
 	@echo "  clean          - Remove release and debug build files"
 	@echo "  clean-release  - Remove release build files"
 	@echo "  clean-debug    - Remove debug build files"
+	@echo "  show           - Show operating system and compiler info"
+	@echo "  show-os        - Show operating system info"
+	@echo "  show-compiler  - Show compiler info"
 	@echo "  help           - Show this help message and exit"
 	@echo
 	@echo "Variables:"
@@ -123,6 +163,3 @@ help:
 	@echo "  make test-debug            # Build and test debug version"
 	@echo "  make CXX=g++               # Build with g++ compiler"
 	@echo "  make CXX_STANDARD=c++20    # Build with C++20 standard"
-
-.PHONY: all release debug run run-release run-debug test test-release \
-        test-debug clean clean-release clean-debug help
