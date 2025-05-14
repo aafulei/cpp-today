@@ -1,22 +1,33 @@
 # Today
 
+> What day is it today?
+
 [![Check](https://github.com/aafulei/cpp-today/actions/workflows/check.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/check.yml)
 [![Build](https://github.com/aafulei/cpp-today/actions/workflows/build.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/build.yml)
 [![Test](https://github.com/aafulei/cpp-today/actions/workflows/test.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/test.yml)
 
 A simple C++23 program that prints the current date in the `YY/MM/DD = Www`
-format.
+format, e.g.
 
-*This repository serves as a minimal but complete C++ project template.*
+```
+25/05/14 = Wed
+```
+
+Visit project website at
+[**aafulei.github.io/cpp-today**](https://aafulei.github.io/cpp-today).
+
+*This repository serves as a minimal but complete Make-based C++23 project
+ template.*
 
 ## Features
 
-- Minimal, complete C++ project template
-- Simple and reliable `make` build system
+- Minimal, complete C++23 project template
+- Simple and reliable Make-based build system
 - Test scripts for manual and automated testing
-- Code formatting support with `clang-format`
-- Editor tooling support via `clangd`
+- Code formatting support with Clang Format
+- Editor tooling support via Clangd
 - Built-in CI/CD workflows using GitHub Actions
+- Project documentation website generated with MkDocs
 
 ## Supported Platforms
 
@@ -25,35 +36,51 @@ format.
 
 ## Getting Started
 
+### Download
+
 Download pre-built binaries from the
 [Release](https://github.com/aafulei/cpp-today/releases)
-page, or build from source:
+page (or build from source as shown below).
+
+### Build
+
+Clone the [GitHub repository](https://github.com/aafulei/cpp-today). Use `make`
+to build the program:
 
 ```shell
 make
 ```
 
-Then, run the program:
+### Run
+
+- If you downloaded the binary from the
+[Release](https://github.com/aafulei/cpp-today/releases)
+page, follow the instructions there.
+
+- If you built it yourself using `make`, run the executable located at:
 
 ```shell
 ./bin/release/today
 ```
 
-Alternatively, you can build and run in one step:
+Alternatively, you can build and run the program in one step:
 
 ```shell
 make run
 ```
 
+### Result
+
 You should see the current date printed out in the `YY/MM/DD = Www` format, e.g.
 
 ```
-25/05/12 = Mon
+25/05/14 = Wed
 ```
 
-## Build
+## Build System
 
-Use `make` to build the program:
+This project features a simple and reliable Make-based build system that allows
+you to use `make` to build, run, and test the program.
 
 ```shell
 make             # Build release version
@@ -69,16 +96,17 @@ To list all targets and options, run `make help`.
 
 ## Project Structure
 
-| File                                       | Description                          |
-| ------------------------------------------ | ------------------------------------ |
-| [`src/today.cpp`](./src/today.cpp)         | C++ source code                      |
-| [`tests/test.sh`](./tests/test.sh)         | Test script                          |
-| [`.clang-format`](./.clang-format)         | Formatting config for `clang-format` |
-| [`.gitignore`](./.gitignore)               | Patterns to ignore for `git`         |
-| [`LICENSE`](./LICENSE)                     | Software license                     |
-| [`Makefile`](./Makefile)                   | Build script for `make`              |
-| [`README.md`](./README.md)                 | This file                            |
-| [`compile_flags.txt`](./compile_flags.txt) | Compile options for `clangd`         |
+- [`.github/workflows/`](./.github/workflows/) - workflows for GitHub Actions
+- [`src/`](./src/) - C++ source code
+- [`docs/`](./docs/) -  documentation source files for MkDocs
+- [`tests/`](./tests/) - test scripts
+- [`.clang-format`](./.clang-format) - formatting config for Clang Format
+- [`.gitignore`](./.gitignore) - patterns to ignore for Git
+- [`LICENSE`](./LICENSE) - software license
+- [`Makefile`](./Makefile) - build script for Make
+- [`README.md`](./README.md) - this file
+- [`compile_flags.txt`](./compile_flags.txt) - compile options for Clangd
+- [`mkdocs.yml`](./mkdocs.yml) - website config for MkDocs
 
 ## Author
 
