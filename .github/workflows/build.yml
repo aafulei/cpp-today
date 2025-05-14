@@ -1,0 +1,64 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "Makefile"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "Makefile"
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        build: [release, debug]
+
+    steps:
+      - name: Show OS info
+        run: |
+          echo "OS details:"
+          if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+            lsb_release -a || cat /etc/os-release
+          else
+            sw_vers
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up C++ environment
+        run: |
+          if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
+            sudo apt-get update
+            sudo apt-get install -y build-essential
+          fi
+
+      - name: Show build info
+        run: |
+          echo "Operating System: ${{ matrix.os }}"
+          echo "Build type: ${{ matrix.build }}"
+          if [ "${{ matrix.os }}" = "macos-latest" ]; then
+            echo "Using C++ standard: c++2b (macOS clang compatibility)"
+          else
+            echo "Using C++ standard: c++23 (Linux default)"
+          fi
+
+      - name: Build
+        run: |
+          if [ "${{ matrix.os }}" = "macos-latest" ]; then
+            CXX_STANDARD=c++2b
+          else
+            CXX_STANDARD=c++23
+          fi
+          echo "Building ${{ matrix.build }} with CXX_STANDARD=$CXX_STANDARD " \
+               "on ${{ matrix.os }}"
+          make CXX_STANDARD=$CXX_STANDARD ${{ matrix.build }}
