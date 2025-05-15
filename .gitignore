@@ -1,4 +1,7 @@
+*.original*
 .DS_Store
 bin/
+docs/doxygen/html
+docs/doxygen/latex
 site/
 venv/
