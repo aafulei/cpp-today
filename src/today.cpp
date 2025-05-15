@@ -1,5 +1,15 @@
 // 25/05/12 = Mon
 
+/**
+ * @file today.cpp
+ *
+ * @brief Prints the current date in the `YY/MM/DD = Www` format, e.g.
+ *
+ * ```
+ * 25/05/12 = Mon
+ * ```
+ */
+
 #include <chrono>
 #include <format>
 #include <iostream>
@@ -8,6 +18,17 @@
 static constexpr const char *week_names[] = {"Sun", "Mon", "Tue", "Wed",
                                              "Thu", "Fri", "Sat"};
 
+/**
+ * @brief Retrieves today's date and formats it as a string.
+ *
+ * Returns a string in the `YY/MM/DD = Www` format, e.g.
+ *
+ * ```
+ * 25/05/12 = Mon
+ * ```
+ *
+ * @return std::string Formatted date string representing today's date.
+ */
 std::string get_today_formatted()
 {
   auto today =
@@ -21,6 +42,13 @@ std::string get_today_formatted()
                      week_names[weekday.c_encoding()]);
 }
 
+/**
+ * @brief Main entry point of the program.
+ *
+ * Prints the formatted current date string to standard output.
+ *
+ * @return int Exit code (0 for success).
+ */
 int main()
 {
   std::cout << get_today_formatted();
