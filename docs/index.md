@@ -19,7 +19,9 @@ Source code available at
 - Code formatting support with Clang Format
 - Editor tooling support via Clangd
 - Built-in CI/CD workflows using GitHub Actions
-- Project documentation website generated with MkDocs
+- Project documentation website built with MkDocs
+- Source code documentation generated with Doxygen
+- Installable man page based on GNU-style help output
 
 ## Supported Platforms
 
