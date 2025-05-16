@@ -42,7 +42,7 @@
     </tab>
     <tab type="examples" visible="yes" title="" intro=""/>
     <tab type="user" url="http://github.com/aafulei/cpp-today/" title="GitHub"/>
-    <tab type="user" url="http://aafulei.github.io/cpp-today/" title="Back to Project"/>
+    <tab type="user" url="../../" title="Back to Project"/>
   </navindex>
 
   <!-- Layout definition for a class page -->
