@@ -10,7 +10,7 @@
 
 This project packages a simple C++23 command-line program, including essential
 tools and workflows for building, testing, and maintaining the code. The
-program prints the current date in the `YY/MM/DD = Www` format (e.g., `25/05/14
+program prints the current date in the `YY/MM/DD = Www` format (e.g. `25/05/14
 = Wed`).
 
 Project website:
@@ -74,10 +74,21 @@ You should see the current date printed out in the `YY/MM/DD = Www` format, e.g.
 25/05/14 = Wed
 ```
 
+### Install
+
+Install the program with
+
+```shell
+make install
+```
+
+You might need `sudo`. Default install path is `/usr/local/bin`. See `make help`
+for customization. To uninstall the program, run `make uninstall`.
+
 ## Build System
 
 This project features a simple and reliable Make-based build system that allows
-you to use `make` to build, run, and test the program.
+you to use `make` to build, run, test, and install the program.
 
 ```shell
 make             # Build release version
@@ -86,6 +97,8 @@ make run         # Build and run release version
 make run-debug   # Build and run debug version
 make test        # Build and test release version
 make test-debug  # Build and test debug version
+make install     # Build and install release version
+make uninstall   # Remove installed program
 make clean       # Remove build files
 ```
 
