@@ -1,23 +1,20 @@
-# Today
-
-> What day is it today?
+# CppToday
 
 [![Check](https://github.com/aafulei/cpp-today/actions/workflows/check.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/check.yml)
 [![Build](https://github.com/aafulei/cpp-today/actions/workflows/build.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/build.yml)
 [![Test](https://github.com/aafulei/cpp-today/actions/workflows/test.yml/badge.svg)](https://github.com/aafulei/cpp-today/actions/workflows/test.yml)
 
-A simple C++23 program that prints the current date in the `YY/MM/DD = Www`
-format, e.g.
+![](./docs/img/logo.svg)
 
-```
-25/05/14 = Wed
-```
+*A minimal but complete Make-based C++23 project template.*
 
-Visit project website at
+This project packages a simple C++23 command-line program, including essential
+tools and workflows for building, testing, and maintaining the code. The
+program prints the current date in the `YY/MM/DD = Www` format (e.g., `25/05/14
+= Wed`).
+
+Project website:
 [**aafulei.github.io/cpp-today**](https://aafulei.github.io/cpp-today).
-
-*This repository serves as a minimal but complete Make-based C++23 project
- template.*
 
 ## Features
 
