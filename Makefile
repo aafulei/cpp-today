@@ -17,7 +17,6 @@ BIN_DIR_DEBUG := bin/debug
 TESTS_DIR := tests
 INST_DIR ?= /usr/local/bin
 MAN_DIR ?= /usr/local/share/man/man1
-MANPAGE_SRC := docs/man/$(PROG).1
 
 # --- Builds -------------------------------------------------------------------
 
@@ -39,6 +38,7 @@ DEP := $(OBJ:.o=.d)
 BINSTAMP := $(BIN_DIR)/.stamp
 TEST := $(TESTS_DIR)/test.sh
 VER_FILE := VERSION
+MANPAGE_SRC := docs/man/$(PROG).1
 
 # --- Version ------------------------------------------------------------------
 
