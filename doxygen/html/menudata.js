@@ -30,4 +30,4 @@ var menudata={children:[
 {text:"All",url:"globals.html"},
 {text:"Functions",url:"globals_func.html"}]}]},
 {text:"GitHub",url:"^http://github.com/aafulei/cpp-today/"},
-{text:"Back to Project",url:"^http://aafulei.github.io/cpp-today/"}]}
+{text:"Back to Project",url:"../../"}]}

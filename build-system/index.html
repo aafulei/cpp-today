@@ -335,7 +335,7 @@
   
   
   <span class="md-ellipsis">
-    Reference
+    Code Reference
     
   </span>
   
@@ -400,7 +400,8 @@ make clean       # Remove build files
 <pre><code class="language-shell">make help
 </code></pre>
 <p>which will show</p>
-<pre><code>Usage: make [CXX=c++] [CXX_STANDARD=c++23] [target]
+<pre><code>Usage: make [CXX=c++] [CXX_STANDARD=c++23] [INST_DIR=/usr/local/bin]
+            [MAN_DIR=/usr/local/share/man/man1] [ARGS] [target=all]
 
 Targets:
   all            - Build release version (default)
@@ -412,33 +413,38 @@ Targets:
   test           - Build and test release version
   test-release   - Build and test release version
   test-debug     - Build and test debug version
-  install        - Build and install release version
-  uninstall      - Remove installed program
+  install        - Install program and man page
+  uninstall      - Uninstall program and man page
   clean          - Remove release and debug build files
   clean-release  - Remove release build files
   clean-debug    - Remove debug build files
   show           - Show operating system and compiler info
   show-os        - Show operating system info
   show-compiler  - Show compiler info
+  show-version   - Show version number
   help           - Show this help message and exit
 
 Variables:
   CXX            - C++ compiler (default: c++).
   CXX_STANDARD   - C++ standard (default: c++23).
-  PREFIX         - Installation prefix (default: /usr/local)
-  INSTALL_DIR    - Installation directory (default: $PREFIX/bin)
+  INST_DIR       - Install dir for program (default: /usr/local/bin)
+  MAN_DIR        - Install dir for man page (default: /usr/local/share/man/man1)
+  ARGS           - Command-line arguments to forward to program
 
 Examples:
-  make                              # Build release version
-  make all                          # Build release version
-  make release                      # Build release version
-  make debug                        # Build debug version
-  make run-debug                    # Build and run debug version
-  make test-debug                   # Build and test debug version
-  make CXX=g++                      # Build with g++ compiler
-  make CXX_STANDARD=c++20           # Build with C++20 standard
-  make PREFIX=/opt/local install    # Install to /opt/local/bin
-  make PREFIX=/opt/local uninstall  # Remove program from /opt/local/bin
+  make                          # Build release version
+  make all                      # Build release version
+  make release                  # Build release version
+  make debug                    # Build debug version
+  make run-debug                # Build and run debug version
+  make test-debug               # Build and test debug version
+  make CXX=g++                  # Build with g++ compiler
+  make CXX_STANDARD=c++20       # Build with C++20 standard
+  make INST_DIR=/tmp install    # Install to /tmp
+  make INST_DIR=/tmp uninstall  # Uninstall from /tmp
+  make MAN_DIR=/tmp install     # Install, saving man page to /tmp
+  make MAN_DIR=/tmp uninstall   # Uninstall, removing man page from /tmp
+  make ARGS=--help run-debug    # Run debug-version program with --help
 </code></pre>
 <hr />
 <p><em>For more details, see the

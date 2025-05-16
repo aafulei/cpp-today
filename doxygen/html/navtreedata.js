@@ -33,13 +33,13 @@ var NAVTREE =
       ] ]
     ] ],
     [ "GitHub", "^http://github.com/aafulei/cpp-today/", null ],
-    [ "Back to Project", "^http://aafulei.github.io/cpp-today/", null ]
+    [ "Back to Project", "../../", null ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"dir_68267d1309a1af8e8297ef4c3efbcdba.html"
+"../../"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

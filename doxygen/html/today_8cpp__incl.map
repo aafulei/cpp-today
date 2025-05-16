@@ -1,5 +1,5 @@
 <map id="src/today.cpp" name="src/today.cpp">
-<area shape="rect" id="Node000001" title="Prints the current date in the YY/MM/DD = Www format, e.g." alt="" coords="114,5,213,31"/>
+<area shape="rect" id="Node000001" title="Prints the current date in the YY/MM/DD = Www format." alt="" coords="114,5,213,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,66,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,34,72,73,69,69,140,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="90,79,149,105"/>
