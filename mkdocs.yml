@@ -13,6 +13,8 @@ theme:
   palette:
     primary: deep purple
     accent: deep purple
+  logo: img/mkdocs-logo.svg
+  favicon: img/mkdocs-favicon.svg
 
 nav:
   - Home: index.md
@@ -25,4 +27,3 @@ plugins:
 
 extra_css:
   - css/custom.css
-
