@@ -93,17 +93,19 @@ To list all targets and options, run `make help`.
 
 ## Project Structure
 
-- [`.github/workflows/`](./.github/workflows/) - workflows for GitHub Actions
-- [`src/`](./src/) - C++ source code
-- [`docs/`](./docs/) -  documentation source files for MkDocs
-- [`tests/`](./tests/) - test scripts
-- [`.clang-format`](./.clang-format) - formatting config for Clang Format
-- [`.gitignore`](./.gitignore) - patterns to ignore for Git
-- [`LICENSE`](./LICENSE) - software license
-- [`Makefile`](./Makefile) - build script for Make
-- [`README.md`](./README.md) - this file
-- [`compile_flags.txt`](./compile_flags.txt) - compile options for Clangd
-- [`mkdocs.yml`](./mkdocs.yml) - website config for MkDocs
+- [`.github/workflows/`](./.github/workflows/) – GitHub Actions workflows
+- [`docs/`](./docs/) – documentation files for MkDocs and Doxygen
+- [`src/`](./src/) – source code
+- [`tests/`](./tests/) – test scripts
+- [`.clang-format`](./.clang-format) – Clang Format configuration
+- [`.gitignore`](./.gitignore) – Git ignore patterns
+- [`Doxyfile`](./Doxyfile) – Doxygen configuration file
+- [`DoxygenLayout.xml`](./DoxygenLayout.xml) – Doxygen website layout
+- [`LICENSE`](./LICENSE) – software license
+- [`Makefile`](./Makefile) – Make build script
+- [`README.md`](./README.md) – repository documentation (this file)
+- [`compile_flags.txt`](./compile_flags.txt) – Clangd compile options
+- [`mkdocs.yml`](./mkdocs.yml) – MkDocs project website configuration
 
 ## Author
 
