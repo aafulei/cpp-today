@@ -41,6 +41,17 @@ You should see the current date printed out in the `YY/MM/DD = Www` format, e.g.
 25/05/14 = Wed
 ```
 
+## Install
+
+Install the program with
+
+```shell
+make install
+```
+
+You might need `sudo`. Default install path is `/usr/local/bin`. See `make help`
+for customization. To uninstall the program, run `make uninstall`.
+
 ---
 
 *For more details, see the
