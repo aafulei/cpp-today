@@ -15,6 +15,8 @@ SRC_DIR := src
 BIN_DIR_RELEASE := bin/release
 BIN_DIR_DEBUG := bin/debug
 TESTS_DIR := tests
+PREFIX ?= /usr/local
+INSTALL_DIR ?= $(PREFIX)/bin
 
 # --- Builds -------------------------------------------------------------------
 
@@ -38,10 +40,71 @@ TEST := $(TESTS_DIR)/test.sh
 
 # --- Rules --------------------------------------------------------------------
 
-.PHONY: all show show-os show-compiler release debug run run-release run-debug \
-	test test-release test-debug clean clean-release clean-debug help
+.PHONY: all release debug run run-release run-debug test-release test-debug \
+	clean clean-release clean-debug install uninstall show show-os show-compiler \
+	help
 
 all: $(TARGET)
+
+# build program
+$(TARGET): $(OBJ) | $(BINSTAMP)
+	$(MAKE) show
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+# generate object files and dependency files
+# -MMD generates .d dependency files, excluding system headers
+# -MP adds phony targets to prevent errors if headers are deleted
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BINSTAMP)
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+# create the bin directory
+$(BINSTAMP):
+	mkdir -p $(BIN_DIR)
+	touch $(BINSTAMP)
+
+# include dependency files (if they exist)
+-include $(DEP)
+
+release:
+	$(MAKE) BUILD=release all
+
+# debug target to compile with debug flags
+debug:
+	$(MAKE) BUILD=debug all
+
+run: $(TARGET)
+	$(TARGET)
+
+run-release:
+	$(MAKE) BUILD=release run
+
+run-debug:
+	$(MAKE) BUILD=debug run
+
+test: $(TARGET)
+	$(TEST) $(TARGET)
+
+test-release:
+	$(MAKE) BUILD=release test
+
+test-debug:
+	$(MAKE) BUILD=debug test
+
+install: $(TARGET)
+	mkdir -pv $(INSTALL_DIR)
+	cp -fv $(TARGET) $(INSTALL_DIR)/
+
+uninstall:
+	rm -fv $(INSTALL_DIR)/$(APP)
+
+clean:
+	rm -rfv $(BIN_DIR_RELEASE) $(BIN_DIR_DEBUG)
+
+clean-release:
+	rm -rfv $(BIN_DIR_RELEASE)
+
+clean-debug:
+	rm -rfv $(BIN_DIR_DEBUG)
 
 show:
 	$(MAKE) show-os
@@ -76,59 +139,6 @@ show-os:
 		fi  \
 	fi
 
-# build program
-$(TARGET): $(OBJ) | $(BINSTAMP)
-	$(MAKE) show
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-# generate object files and dependency files
-# -MMD generates .d dependency files, excluding system headers
-# -MP adds phony targets to prevent errors if headers are deleted
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BINSTAMP)
-	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
-
-# create the bin directory
-$(BINSTAMP):
-	mkdir -p $(BIN_DIR)
-	touch $(BINSTAMP)
-
-# include dependency files (if they exist)
--include $(DEP)
-
-clean:
-	rm -rfv $(BIN_DIR_RELEASE) $(BIN_DIR_DEBUG)
-
-clean-debug:
-	rm -rfv $(BIN_DIR_DEBUG)
-
-clean-release:
-	rm -rfv $(BIN_DIR_RELEASE)
-
-# debug target to compile with debug flags
-debug:
-	$(MAKE) BUILD=debug all
-
-release:
-	$(MAKE) BUILD=release all
-
-run: $(TARGET)
-	$(TARGET)
-
-run-debug:
-	$(MAKE) BUILD=debug run
-
-run-release:
-	$(MAKE) BUILD=release run
-
-test: $(TARGET)
-	$(TEST) $(TARGET)
-
-test-debug:
-	$(MAKE) BUILD=debug test
-
-test-release:
-	$(MAKE) BUILD=release test
-
 help:
 	@echo "Usage: make [CXX=c++] [CXX_STANDARD=c++23] [target]"
 	@echo
@@ -142,6 +152,8 @@ help:
 	@echo "  test           - Build and test release version"
 	@echo "  test-release   - Build and test release version"
 	@echo "  test-debug     - Build and test debug version"
+	@echo "  install        - Build and install release version"
+	@echo "  uninstall      - Remove installed program"
 	@echo "  clean          - Remove release and debug build files"
 	@echo "  clean-release  - Remove release build files"
 	@echo "  clean-debug    - Remove debug build files"
@@ -153,13 +165,17 @@ help:
 	@echo "Variables:"
 	@echo "  CXX            - C++ compiler (default: c++)."
 	@echo "  CXX_STANDARD   - C++ standard (default: c++23)."
+	@echo "  PREFIX         - Installation prefix (default: /usr/local)"
+	@echo "  INSTALL_DIR    - Installation directory (default: \$$PREFIX/bin)"
 	@echo
 	@echo "Examples:"
-	@echo "  make                       # Build release version"
-	@echo "  make all                   # Build release version"
-	@echo "  make release               # Build release version"
-	@echo "  make debug                 # Build debug version"
-	@echo "  make run-debug             # Build and run debug version"
-	@echo "  make test-debug            # Build and test debug version"
-	@echo "  make CXX=g++               # Build with g++ compiler"
-	@echo "  make CXX_STANDARD=c++20    # Build with C++20 standard"
+	@echo "  make                              # Build release version"
+	@echo "  make all                          # Build release version"
+	@echo "  make release                      # Build release version"
+	@echo "  make debug                        # Build debug version"
+	@echo "  make run-debug                    # Build and run debug version"
+	@echo "  make test-debug                   # Build and test debug version"
+	@echo "  make CXX=g++                      # Build with g++ compiler"
+	@echo "  make CXX_STANDARD=c++20           # Build with C++20 standard"
+	@echo "  make PREFIX=/opt/local install    # Install to /opt/local/bin"
+	@echo "  make PREFIX=/opt/local uninstall  # Remove program from /opt/local/bin"
