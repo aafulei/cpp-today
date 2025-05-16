@@ -8,10 +8,9 @@
 
 *A minimal but complete Make-based C++23 project template.*
 
-This project packages a simple C++23 command-line program, including essential
-tools and workflows for building, testing, and maintaining the code. The
-program prints the current date in the `YY/MM/DD = Www` format (e.g. `25/05/14
-= Wed`).
+This project packages a simple C++23 command-line program with essential tools
+and workflows for building, testing, and maintaining the code. The program
+prints the current date in the `YY/MM/DD = Www` format (e.g. `25/05/14 = Wed`).
 
 Project website:
 [**aafulei.github.io/cpp-today**](https://aafulei.github.io/cpp-today).
@@ -25,6 +24,7 @@ Project website:
 - Editor tooling support via Clangd
 - Built-in CI/CD workflows using GitHub Actions
 - Project documentation website generated with MkDocs
+- Source code documentation generated with Doxygen
 
 ## Supported Platforms
 
