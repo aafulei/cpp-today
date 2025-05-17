@@ -67,7 +67,7 @@ Alternatively, you can build and run the program in one step:
 make run
 ```
 
-### Result
+#### Result
 
 You should see the current date printed out in the `YY/MM/DD = Www` format, e.g.
 
@@ -77,14 +77,31 @@ You should see the current date printed out in the `YY/MM/DD = Www` format, e.g.
 
 ### Install
 
-Install the program with
+You can install the program with
 
 ```shell
 make install
 ```
 
-You might need `sudo`. Default install path is `/usr/local/bin`. See `make help`
-for customization. To uninstall the program, run `make uninstall`.
+A `man` page will be installed together with the program. You might need `sudo`
+privileges. See make help for customization options. To uninstall the program,
+run `make uninstall`.
+
+### Ask For Help
+
+As is typical with command-line programs, run
+
+```sh
+today --help
+```
+
+for help. If the program has been installed, you can run
+
+```sh
+man today
+```
+
+to view the man page for more information.
 
 ## Build System
 
