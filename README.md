@@ -67,8 +67,6 @@ Alternatively, you can build and run the program in one step:
 make run
 ```
 
-#### Result
-
 You should see the current date printed out in the `YY/MM/DD = Www` format, e.g.
 
 ```
@@ -102,25 +100,6 @@ man today
 ```
 
 to view the man page for more information.
-
-<!-- ## Build System
-
-This project features a simple and reliable Make-based build system that allows
-you to use `make` to build, run, test, and install the program.
-
-```shell
-make             # Build release version
-make debug       # Build debug version
-make run         # Build and run release version
-make run-debug   # Build and run debug version
-make test        # Build and test release version
-make test-debug  # Build and test debug version
-make install     # Build and install release version
-make uninstall   # Remove installed program
-make clean       # Remove build files
-```
-
-To list all targets and options, run `make help`. -->
 
 ## Project Structure
 
