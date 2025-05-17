@@ -25,7 +25,7 @@ Project website:
 - Built-in CI/CD workflows using GitHub Actions
 - Project documentation website built with MkDocs
 - Source code documentation generated with Doxygen
-- Installable man page based on GNU-style help output
+- Software documentation in GNU-style man page
 
 ## Supported Platforms
 
@@ -103,7 +103,7 @@ man today
 
 to view the man page for more information.
 
-## Build System
+<!-- ## Build System
 
 This project features a simple and reliable Make-based build system that allows
 you to use `make` to build, run, test, and install the program.
@@ -120,7 +120,7 @@ make uninstall   # Remove installed program
 make clean       # Remove build files
 ```
 
-To list all targets and options, run `make help`.
+To list all targets and options, run `make help`. -->
 
 ## Project Structure
 
