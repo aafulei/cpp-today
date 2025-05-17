@@ -1,6 +1,7 @@
 # Build System
 
-This project features a simple and reliable Make-based build system.
+This project features a simple and reliable Make-based build system that allows
+the user to use `make` to build, run, test, and install the program.
 
 To use it, clone the [GitHub repository](https://github.com/aafulei/cpp-today),
 and use `make` to build, run, test and install the program.
