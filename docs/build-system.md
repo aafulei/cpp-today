@@ -66,11 +66,12 @@ Examples:
   make test-debug               # Build and test debug version
   make CXX=g++                  # Build with g++ compiler
   make CXX_STANDARD=c++20       # Build with C++20 standard
-  make INST_DIR=/tmp install    # Install to /tmp
-  make INST_DIR=/tmp uninstall  # Uninstall from /tmp
-  make MAN_DIR=/tmp install     # Install, saving man page to /tmp
-  make MAN_DIR=/tmp uninstall   # Uninstall, removing man page from /tmp
+  make INST_DIR=/opt install    # Install to /opt
+  make INST_DIR=/opt uninstall  # Uninstall from /opt
+  make MAN_DIR=/opt install     # Install, saving man page to /opt
+  make MAN_DIR=/opt uninstall   # Uninstall, removing man page from /opt
   make ARGS=--help run-debug    # Run debug-version program with --help
+
 ```
 
 ---
