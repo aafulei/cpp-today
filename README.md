@@ -87,7 +87,7 @@ A `man` page will be installed together with the program. You might need `sudo`
 privileges. See make help for customization options. To uninstall the program,
 run `make uninstall`.
 
-### Ask For Help
+### Ask for Help
 
 As is typical with command-line programs, run
 
