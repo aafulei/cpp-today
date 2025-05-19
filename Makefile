@@ -35,7 +35,6 @@ BIN := $(BIN_DIR)/$(PROG)
 SRC := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ := $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%.o,$(SRC))
 DEP := $(OBJ:.o=.d)
-BINSTAMP := $(BIN_DIR)/.stamp
 TEST := $(TESTS_DIR)/test.sh
 VER_FILE := VERSION
 MANPAGE_GEN := help2man
@@ -68,7 +67,7 @@ CXXFLAGS += -DVERSION=\"$(VER_FULL)\"
 all: $(BIN)
 
 # build program
-$(BIN): $(OBJ) | $(BINSTAMP)
+$(BIN): $(OBJ) | $(BIN_DIR)
 	@echo
 	@echo "% ======="
 	@echo "% Linking"
@@ -78,9 +77,9 @@ $(BIN): $(OBJ) | $(BINSTAMP)
 	$(MAKE) show
 
 # generate dependency files and object files
-# -MMD generates .d dependency files, excluding system headers
+# -MMD generates .d dependency files excluding system headers
 # -MP adds phony targets to prevent errors if headers are deleted
-$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp $(VER_FILE) | $(BINSTAMP)
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp $(VER_FILE) | $(BIN_DIR)
 	@echo
 	@echo "% ========="
 	@echo "% Compiling"
@@ -89,14 +88,13 @@ $(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp $(VER_FILE) | $(BINSTAMP)
 	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
 # create the bin directory
-$(BINSTAMP):
+$(BIN_DIR):
 	@echo
-	@echo "% ============"
-	@echo "% Touching Dir"
-	@echo "% ============"
+	@echo "% ======================="
+	@echo "% Making Output Directory"
+	@echo "% ======================="
 	@echo
 	mkdir -p $(BIN_DIR)
-	touch $(BINSTAMP)
 
 $(MANPAGE_SRC): $(BIN)
 	@echo
