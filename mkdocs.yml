@@ -15,6 +15,12 @@ theme:
     accent: deep purple
   logo: img/logo-mkdocs.svg
   favicon: img/icon.svg
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
 
 nav:
   - Home: index.md
