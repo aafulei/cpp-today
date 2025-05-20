@@ -1,19 +1,19 @@
 # Testing
 
-This project includes test scripts for manual and automated testing.
+This project includes test scripts for both manual and automated testing.
 
 To test the program, clone the
-[GitHub repository](https://github.com/aafulei/cpp-today), and use `make` to run
-the tests.
+[GitHub repository](https://github.com/aafulei/cpp-today), then use `make` to
+to run the tests.
 
 ```shell
 make test           # Build and test release version
 make test-debug     # Build and test debug version
 ```
 
-These commands run `tests/test.sh` on the respective builds.
+These commands will run `tests/test.sh` against the corresponding build.
 
-On success, you should see output like
+On success, you should see output similar to
 
 ```
 Test passed: 25/05/14 = Wed
@@ -27,5 +27,5 @@ Test failed!
 
 ---
 
-*For more details, see the
+*For source code and project files, please see the
 [GitHub repository](https://github.com/aafulei/cpp-today).*

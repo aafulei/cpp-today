@@ -18,9 +18,10 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - Testing: testing.md
-  - Build System: build-system.md
+  - User Guide:
+    - Getting Started: getting-started.md
+    - Testing: testing.md
+    - Build System: build-system.md
   - Code Reference: doxygen/html/index.html
 
 plugins:
