@@ -4,15 +4,18 @@ on:
   push:
     branches: ["main"]
     paths:
+      - ".github/workflows/**"
       - "src/**"
       - "tests/**"
       - "Makefile"
   pull_request:
     branches: ["main"]
     paths:
+      - ".github/workflows/**"
       - "src/**"
       - "tests/**"
       - "Makefile"
+  workflow_dispatch:
 
 jobs:
   build:
