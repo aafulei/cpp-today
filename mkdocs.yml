@@ -22,6 +22,10 @@ nav:
     - Getting Started: getting-started.md
     - Testing: testing.md
     - Build System: build-system.md
+  - Technical Details:
+    - Single Source of Truth: single-source-of-truth.md
+    - Makefile in Detail: makefile-in-detail.md
+    - Ready for Deployment: ready-for-deployment.md
   - Code Reference: doxygen/html/index.html
 
 plugins:
